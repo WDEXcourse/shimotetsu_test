@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
@@ -10,7 +11,7 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Restart();
     }
 
     // Update is called once per frame
@@ -24,24 +25,29 @@ public class EnemyMove : MonoBehaviour
         float enemy_y = transform.position.y;
         float enemy_z = transform.position.z;
 
+        float enemy_speed = 0.02f;
+
         if (enemy_x < player_x)
         {
-            enemy_x += 0.1f;
+            enemy_x += enemy_speed;
         }
         else
         {
-            enemy_x -= 0.1f;
+            enemy_x -= enemy_speed;
         }
 
         if (enemy_z < player_z)
         {
-            enemy_z += 0.1f;
+            enemy_z += enemy_speed;
         }
         else
         {
-            enemy_z -= 0.1f;
+            enemy_z -= enemy_speed;
         }
 
         transform.position = new Vector3(enemy_x, enemy_y, enemy_z);
+    }
+    public void Restart(){
+        transform.position = new Vector3(0.0f,0.0f,30.0f);
     }
 }
