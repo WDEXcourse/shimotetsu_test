@@ -25,7 +25,7 @@ public class EnemyMove : MonoBehaviour
         float enemy_y = transform.position.y;
         float enemy_z = transform.position.z;
 
-        float enemy_speed = 0.02f;
+        float enemy_speed = 0.01f;
 
         if (enemy_x < player_x)
         {
@@ -48,6 +48,6 @@ public class EnemyMove : MonoBehaviour
         transform.position = new Vector3(enemy_x, enemy_y, enemy_z);
     }
     public void Restart(){
-        transform.position = new Vector3(0.0f,0.0f,30.0f);
+        transform.position = new Vector3(0.0f,0.3f,25.0f);
     }
 }

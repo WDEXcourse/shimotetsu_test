@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;// シーンを変える時に追記
 
 public class PlayerMove : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Space) && isFloor)
         {
-            rb.AddForce(0, 30, 0);
+            rb.AddForce(0, 20, 0);
         }
 
         if (transform.position.y < -10.0f)
@@ -58,7 +59,7 @@ public class PlayerMove : MonoBehaviour
 
         else if (hit.gameObject.tag == "Goal")
         {
-            GoalText.SetActive (true);
+            SceneManager.LoadScene("Scenes/ClearScene");// Mainシーンに変える
         }
         else if (hit.gameObject.tag == "Floor")
         {
